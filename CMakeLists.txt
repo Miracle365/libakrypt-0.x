@@ -53,7 +53,9 @@ set( AKBASE_SOURCES
    source/ak_file.c
    source/ak_base64.c
   )
-
+# -------------------------------------------------------------------------------------------------- #
+set(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS} -maes")
+# Для использования интринзиковой функции aesimc
 # -------------------------------------------------------------------------------------------------- #
 # Добавляем исходные тексты для криптобиблиотеки
 set( AKRYPT_SOURCES
@@ -74,6 +76,7 @@ set( AKRYPT_SOURCES
    source/ak_cmac.c
    source/ak_magma.c
    source/ak_kuznechik.c
+   source/ak_aes.c
    source/ak_acpkm.c
    source/ak_mgm.c
    source/ak_xts.c
@@ -192,6 +195,7 @@ set ( ARITHMETIC_TESTS_LIST
       asn1-keys
       asn1-cert
       blom-keys
+      aes
     )
 
 if( LIBAKRYPT_GMP_TESTS )
